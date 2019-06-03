@@ -1,0 +1,802 @@
+Analysis & Synthesis report for CAD_VGA_Quartus
+Sun Jun 02 12:00:12 2019
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |CAD961Test|STATE
+  9. State Machine - |CAD961Test|VGA_Square:VGA_SQ|STATE
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Inverted Register Statistics
+ 14. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 16. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 17. Port Connectivity Checks: "VGA_Square:VGA_SQ"
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sun Jun 02 12:00:12 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; CAD_VGA_Quartus                             ;
+; Top-level Entity Name           ; CAD961Test                                  ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 423                                         ;
+; Total pins                      ; 158                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CEBA4F23C7        ;                    ;
+; Top-level entity name                                                           ; CAD961Test         ; CAD_VGA_Quartus    ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                               ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+; VGA/VGA_Square.vhd               ; yes             ; User VHDL File               ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd          ;         ;
+; VGA/VGA_controller.vhd           ; yes             ; User VHDL File               ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_controller.vhd      ;         ;
+; CAD_VGA_Quartus.vhd              ; yes             ; User VHDL File               ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd         ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal181.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/18.1/quartus/libraries/megafunctions/aglobal181.inc      ;         ;
+; db/lpm_divide_uio.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_divide_uio.tdf       ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/abs_divider_4dg.tdf      ;         ;
+; db/alt_u_div_o2f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/alt_u_div_o2f.tdf        ;         ;
+; db/lpm_abs_4p9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_abs_4p9.tdf          ;         ;
+; db/lpm_divide_bpo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_divide_bpo.tdf       ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/abs_divider_kbg.tdf      ;         ;
+; db/alt_u_div_ove.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/alt_u_div_ove.tdf        ;         ;
+; db/lpm_abs_kn9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_abs_kn9.tdf          ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------+---------+
+
+
++-------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                 ;
++---------------------------------------------+---------------+
+; Resource                                    ; Usage         ;
++---------------------------------------------+---------------+
+; Estimate of Logic utilization (ALMs needed) ; 1412          ;
+;                                             ;               ;
+; Combinational ALUT usage for logic          ; 2691          ;
+;     -- 7 input functions                    ; 0             ;
+;     -- 6 input functions                    ; 127           ;
+;     -- 5 input functions                    ; 69            ;
+;     -- 4 input functions                    ; 658           ;
+;     -- <=3 input functions                  ; 1837          ;
+;                                             ;               ;
+; Dedicated logic registers                   ; 423           ;
+;                                             ;               ;
+; I/O pins                                    ; 158           ;
+;                                             ;               ;
+; Total DSP Blocks                            ; 0             ;
+;                                             ;               ;
+; Maximum fan-out node                        ; RESET_N~input ;
+; Maximum fan-out                             ; 423           ;
+; Total fan-out                               ; 10362         ;
+; Average fan-out                             ; 3.00          ;
++---------------------------------------------+---------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                        ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; Compilation Hierarchy Node            ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                      ; Entity Name     ; Library Name ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+; |CAD961Test                           ; 2691 (179)          ; 423 (111)                 ; 0                 ; 0          ; 158  ; 0            ; |CAD961Test                                                                                              ; CAD961Test      ; work         ;
+;    |VGA_Square:VGA_SQ|                ; 635 (635)           ; 289 (289)                 ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|VGA_Square:VGA_SQ                                                                            ; VGA_Square      ; work         ;
+;    |VGA_controller:VGA_Control|       ; 84 (84)             ; 23 (23)                   ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|VGA_controller:VGA_Control                                                                   ; VGA_controller  ; work         ;
+;    |lpm_divide:Div0|                  ; 459 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Div0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_bpo:auto_generated| ; 459 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Div0|lpm_divide_bpo:auto_generated                                                ; lpm_divide_bpo  ; work         ;
+;          |abs_divider_kbg:divider|    ; 459 (8)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Div0|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg ; work         ;
+;             |alt_u_div_ove:divider|   ; 419 (419)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Div0|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|alt_u_div_ove:divider  ; alt_u_div_ove   ; work         ;
+;             |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Div0|lpm_divide_bpo:auto_generated|abs_divider_kbg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
+;    |lpm_divide:Mod0|                  ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Mod0                                                                              ; lpm_divide      ; work         ;
+;       |lpm_divide_uio:auto_generated| ; 1334 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Mod0|lpm_divide_uio:auto_generated                                                ; lpm_divide_uio  ; work         ;
+;          |abs_divider_4dg:divider|    ; 1334 (7)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider                        ; abs_divider_4dg ; work         ;
+;             |alt_u_div_o2f:divider|   ; 1295 (1295)         ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|alt_u_div_o2f:divider  ; alt_u_div_o2f   ; work         ;
+;             |lpm_abs_4p9:my_abs_num|  ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |CAD961Test|lpm_divide:Mod0|lpm_divide_uio:auto_generated|abs_divider_4dg:divider|lpm_abs_4p9:my_abs_num ; lpm_abs_4p9     ; work         ;
++---------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------------------------+-----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------+
+; State Machine - |CAD961Test|STATE                     ;
++-------------+-------------+-------------+-------------+
+; Name        ; STATE.loose ; STATE.start ; STATE.waitS ;
++-------------+-------------+-------------+-------------+
+; STATE.waitS ; 0           ; 0           ; 0           ;
+; STATE.start ; 0           ; 1           ; 1           ;
+; STATE.loose ; 1           ; 0           ; 1           ;
++-------------+-------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------+
+; State Machine - |CAD961Test|VGA_Square:VGA_SQ|STATE               ;
++-------------+-----------+-------------+-------------+-------------+
+; Name        ; STATE.Won ; STATE.loose ; STATE.start ; STATE.waitS ;
++-------------+-----------+-------------+-------------+-------------+
+; STATE.waitS ; 0         ; 0           ; 0           ; 0           ;
+; STATE.start ; 0         ; 0           ; 1           ; 1           ;
+; STATE.loose ; 0         ; 1           ; 0           ; 1           ;
+; STATE.Won   ; 1         ; 0           ; 0           ; 1           ;
++-------------+-----------+-------------+-------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++-----------------------------------------+-----------------------------------------------------+
+; Register name                           ; Reason for Removal                                  ;
++-----------------------------------------+-----------------------------------------------------+
+; VGA_Square:VGA_SQ|RandYPos[8,9]         ; Stuck at GND due to stuck port data_in              ;
+; VGA_Square:VGA_SQ|RandY2Pos[8,9]        ; Stuck at GND due to stuck port data_in              ;
+; VGA_Square:VGA_SQ|EndGame[1..31]        ; Stuck at GND due to stuck port data_in              ;
+; VGA_Square:VGA_SQ|fine[2..30]           ; Merged with VGA_Square:VGA_SQ|fine[31]              ;
+; VGA_Square:VGA_SQ|CounterWon[31]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[31] ;
+; VGA_Square:VGA_SQ|CounterWon[30]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[30] ;
+; VGA_Square:VGA_SQ|CounterWon[29]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[29] ;
+; VGA_Square:VGA_SQ|CounterWon[28]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[28] ;
+; VGA_Square:VGA_SQ|CounterWon[27]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[27] ;
+; VGA_Square:VGA_SQ|CounterWon[26]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[26] ;
+; VGA_Square:VGA_SQ|CounterWon[25]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[25] ;
+; VGA_Square:VGA_SQ|CounterWon[24]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[24] ;
+; VGA_Square:VGA_SQ|CounterWon[23]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[23] ;
+; VGA_Square:VGA_SQ|CounterWon[22]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[22] ;
+; VGA_Square:VGA_SQ|CounterWon[21]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[21] ;
+; VGA_Square:VGA_SQ|CounterWon[20]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[20] ;
+; VGA_Square:VGA_SQ|CounterWon[19]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[19] ;
+; VGA_Square:VGA_SQ|CounterWon[18]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[18] ;
+; VGA_Square:VGA_SQ|CounterWon[17]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[17] ;
+; VGA_Square:VGA_SQ|CounterWon[16]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[16] ;
+; VGA_Square:VGA_SQ|CounterWon[15]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[15] ;
+; VGA_Square:VGA_SQ|CounterWon[14]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[14] ;
+; VGA_Square:VGA_SQ|CounterWon[13]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[13] ;
+; VGA_Square:VGA_SQ|CounterWon[12]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[12] ;
+; VGA_Square:VGA_SQ|CounterWon[11]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[11] ;
+; VGA_Square:VGA_SQ|CounterWon[10]        ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[10] ;
+; VGA_Square:VGA_SQ|CounterWon[9]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[9]  ;
+; VGA_Square:VGA_SQ|CounterWon[8]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[8]  ;
+; VGA_Square:VGA_SQ|CounterWon[7]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[7]  ;
+; VGA_Square:VGA_SQ|CounterWon[6]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[6]  ;
+; VGA_Square:VGA_SQ|CounterWon[5]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[5]  ;
+; VGA_Square:VGA_SQ|CounterWon[4]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[4]  ;
+; VGA_Square:VGA_SQ|CounterWon[3]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[3]  ;
+; VGA_Square:VGA_SQ|CounterWon[2]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[2]  ;
+; VGA_Square:VGA_SQ|CounterWon[1]         ; Merged with VGA_Square:VGA_SQ|\blockCounter:tmp[1]  ;
+; HEX0[3]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX1[0]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX1[3]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX5[3]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX5[4]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX5[5]~reg0                            ; Merged with HEX0[0]~reg0                            ;
+; HEX5[0]~reg0                            ; Merged with HEX0[1]~reg0                            ;
+; HEX0[6]~reg0                            ; Merged with HEX0[4]~reg0                            ;
+; HEX1[2]~reg0                            ; Merged with HEX0[4]~reg0                            ;
+; HEX1[6]~reg0                            ; Merged with HEX0[4]~reg0                            ;
+; HEX1[5]~reg0                            ; Merged with HEX0[5]~reg0                            ;
+; HEX5[1]~reg0                            ; Merged with HEX1[1]~reg0                            ;
+; HEX5[2]~reg0                            ; Merged with HEX1[1]~reg0                            ;
+; HEX5[6]~reg0                            ; Merged with HEX1[4]~reg0                            ;
+; VGA_Square:VGA_SQ|pseudo_rand2[8]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[7]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[7]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[6]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[6]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[5]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[5]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[4]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[4]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[3]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[3]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[2]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[2]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[1]          ;
+; VGA_Square:VGA_SQ|pseudo_rand2[1]       ; Merged with VGA_Square:VGA_SQ|RandY2Pos[0]          ;
+; VGA_Square:VGA_SQ|countEnable[25]       ; Merged with VGA_Square:VGA_SQ|countEn[25]           ;
+; VGA_Square:VGA_SQ|countEnable[23]       ; Merged with VGA_Square:VGA_SQ|countEn[23]           ;
+; VGA_Square:VGA_SQ|countEnable[22]       ; Merged with VGA_Square:VGA_SQ|countEn[22]           ;
+; VGA_Square:VGA_SQ|countEnable[21]       ; Merged with VGA_Square:VGA_SQ|countEn[21]           ;
+; VGA_Square:VGA_SQ|countEnable[20]       ; Merged with VGA_Square:VGA_SQ|countEn[20]           ;
+; VGA_Square:VGA_SQ|countEnable[19]       ; Merged with VGA_Square:VGA_SQ|countEn[19]           ;
+; VGA_Square:VGA_SQ|countEnable[17]       ; Merged with VGA_Square:VGA_SQ|countEn[17]           ;
+; VGA_Square:VGA_SQ|countEnable[15]       ; Merged with VGA_Square:VGA_SQ|countEn[15]           ;
+; VGA_Square:VGA_SQ|countEnable[14]       ; Merged with VGA_Square:VGA_SQ|countEn[14]           ;
+; VGA_Square:VGA_SQ|countEnable[13]       ; Merged with VGA_Square:VGA_SQ|countEn[13]           ;
+; VGA_Square:VGA_SQ|countEnable[12]       ; Merged with VGA_Square:VGA_SQ|countEn[12]           ;
+; VGA_Square:VGA_SQ|countEnable[7]        ; Merged with VGA_Square:VGA_SQ|countEn[7]            ;
+; VGA_Square:VGA_SQ|countEnable[31]       ; Merged with VGA_Square:VGA_SQ|countEn[31]           ;
+; VGA_Square:VGA_SQ|countEnable[30]       ; Merged with VGA_Square:VGA_SQ|countEn[30]           ;
+; VGA_Square:VGA_SQ|countEnable[29]       ; Merged with VGA_Square:VGA_SQ|countEn[29]           ;
+; VGA_Square:VGA_SQ|countEnable[28]       ; Merged with VGA_Square:VGA_SQ|countEn[28]           ;
+; VGA_Square:VGA_SQ|countEnable[27]       ; Merged with VGA_Square:VGA_SQ|countEn[27]           ;
+; VGA_Square:VGA_SQ|countEnable[26]       ; Merged with VGA_Square:VGA_SQ|countEn[26]           ;
+; VGA_Square:VGA_SQ|countEnable[24]       ; Merged with VGA_Square:VGA_SQ|countEn[24]           ;
+; VGA_Square:VGA_SQ|countEnable[18]       ; Merged with VGA_Square:VGA_SQ|countEn[18]           ;
+; VGA_Square:VGA_SQ|countEnable[16]       ; Merged with VGA_Square:VGA_SQ|countEn[16]           ;
+; VGA_Square:VGA_SQ|countEnable[11]       ; Merged with VGA_Square:VGA_SQ|countEn[11]           ;
+; VGA_Square:VGA_SQ|countEnable[10]       ; Merged with VGA_Square:VGA_SQ|countEn[10]           ;
+; VGA_Square:VGA_SQ|countEnable[9]        ; Merged with VGA_Square:VGA_SQ|countEn[9]            ;
+; VGA_Square:VGA_SQ|countEnable[8]        ; Merged with VGA_Square:VGA_SQ|countEn[8]            ;
+; VGA_Square:VGA_SQ|countEnable[6]        ; Merged with VGA_Square:VGA_SQ|countEn[6]            ;
+; VGA_Square:VGA_SQ|countEnable[5]        ; Merged with VGA_Square:VGA_SQ|countEn[5]            ;
+; VGA_Square:VGA_SQ|countEnable[4]        ; Merged with VGA_Square:VGA_SQ|countEn[4]            ;
+; VGA_Square:VGA_SQ|countEnable[3]        ; Merged with VGA_Square:VGA_SQ|countEn[3]            ;
+; VGA_Square:VGA_SQ|countEnable[2]        ; Merged with VGA_Square:VGA_SQ|countEn[2]            ;
+; VGA_Square:VGA_SQ|countEnable[1]        ; Merged with VGA_Square:VGA_SQ|countEn[1]            ;
+; VGA_Square:VGA_SQ|countEnable[0]        ; Merged with VGA_Square:VGA_SQ|countEn[0]            ;
+; VGA_Square:VGA_SQ|fine[31]              ; Stuck at GND due to stuck port data_in              ;
+; HEX1[4]~reg0                            ; Stuck at VCC due to stuck port data_in              ;
+; STATE.loose                             ; Lost fanout                                         ;
+; VGA_Square:VGA_SQ|STATE.loose           ; Lost fanout                                         ;
+; Total Number of Removed Registers = 153 ;                                                     ;
++-----------------------------------------+-----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                        ;
++-------------------------------+---------------------------+------------------------------------------------------------------------+
+; Register name                 ; Reason for Removal        ; Registers Removed due to This Register                                 ;
++-------------------------------+---------------------------+------------------------------------------------------------------------+
+; VGA_Square:VGA_SQ|RandYPos[9] ; Stuck at GND              ; VGA_Square:VGA_SQ|EndGame[19], VGA_Square:VGA_SQ|EndGame[15],          ;
+;                               ; due to stuck port data_in ; VGA_Square:VGA_SQ|EndGame[12], VGA_Square:VGA_SQ|EndGame[9],           ;
+;                               ;                           ; VGA_Square:VGA_SQ|EndGame[7], VGA_Square:VGA_SQ|fine[31], HEX1[4]~reg0 ;
++-------------------------------+---------------------------+------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 423   ;
+; Number of registers using Synchronous Clear  ; 182   ;
+; Number of registers using Synchronous Load   ; 11    ;
+; Number of registers using Asynchronous Clear ; 353   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 371   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; HEX2[0]~reg0                            ; 1       ;
+; HEX2[1]~reg0                            ; 1       ;
+; HEX2[2]~reg0                            ; 1       ;
+; HEX2[3]~reg0                            ; 1       ;
+; HEX2[4]~reg0                            ; 1       ;
+; HEX2[5]~reg0                            ; 1       ;
+; HEX2[6]~reg0                            ; 1       ;
+; HEX3[0]~reg0                            ; 1       ;
+; HEX3[1]~reg0                            ; 1       ;
+; HEX3[2]~reg0                            ; 1       ;
+; HEX3[3]~reg0                            ; 1       ;
+; HEX3[4]~reg0                            ; 1       ;
+; HEX3[5]~reg0                            ; 1       ;
+; HEX3[6]~reg0                            ; 1       ;
+; VGA_Square:VGA_SQ|SquareYposition[7]    ; 10      ;
+; VGA_Square:VGA_SQ|SquareYposition[6]    ; 9       ;
+; VGA_Square:VGA_SQ|SquareYposition[5]    ; 8       ;
+; VGA_Square:VGA_SQ|SquareYposition[4]    ; 8       ;
+; VGA_Square:VGA_SQ|blockX2position[8]    ; 7       ;
+; VGA_Square:VGA_SQ|blockX2position[7]    ; 7       ;
+; VGA_Square:VGA_SQ|blockX2position[6]    ; 7       ;
+; VGA_Square:VGA_SQ|blockX2position[2]    ; 6       ;
+; VGA_Square:VGA_SQ|blockX2position[0]    ; 6       ;
+; yekan[0]                                ; 7       ;
+; Counter[0]                              ; 6       ;
+; VGA_Square:VGA_SQ|blockSpeed[16]        ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[17]        ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[14]        ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[15]        ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[12]        ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[7]         ; 2       ;
+; VGA_Square:VGA_SQ|blockSpeed[4]         ; 3       ;
+; Total number of inverted registers = 32 ;         ;
++-----------------------------------------+---------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CAD961Test|VGA_Square:VGA_SQ|fine[1]            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |CAD961Test|VGA_Square:VGA_SQ|SquareYposition[9] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |CAD961Test|HEX0[5]~reg0                         ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |CAD961Test|VGA_Square:VGA_SQ|SquareYposition[5] ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CAD961Test|HEX3[3]~reg0                         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |CAD961Test|HEX2[6]~reg0                         ;
+; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |CAD961Test|VGA_controller:VGA_Control|RED[1]    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |CAD961Test|HEX4                                 ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |CAD961Test|HEX4                                 ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |CAD961Test|VGA_controller:VGA_Control|BLUE[3]   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |CAD961Test|VGA_Square:VGA_SQ|STATE              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_uio ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 5              ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bpo ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "VGA_Square:VGA_SQ"                                                                               ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                             ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+; squarewidth[4..1] ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; squarewidth[7..5] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; squarewidth[0]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; blockhight[7..5]  ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; blockhight[4..0]  ; Input  ; Info     ; Stuck at GND                                                                        ;
+; countout[31..4]   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 423                         ;
+;     CLR               ; 8                           ;
+;     CLR SCLR          ; 43                          ;
+;     ENA               ; 68                          ;
+;     ENA CLR           ; 153                         ;
+;     ENA CLR SCLR      ; 139                         ;
+;     ENA CLR SLD       ; 10                          ;
+;     ENA SLD           ; 1                           ;
+;     plain             ; 1                           ;
+; arriav_io_obuf        ; 22                          ;
+; arriav_lcell_comb     ; 2709                        ;
+;     arith             ; 1338                        ;
+;         0 data inputs ; 117                         ;
+;         1 data inputs ; 482                         ;
+;         2 data inputs ; 110                         ;
+;         3 data inputs ; 296                         ;
+;         4 data inputs ; 333                         ;
+;     normal            ; 1361                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 30                          ;
+;         2 data inputs ; 678                         ;
+;         3 data inputs ; 130                         ;
+;         4 data inputs ; 325                         ;
+;         5 data inputs ; 69                          ;
+;         6 data inputs ; 127                         ;
+;     shared            ; 10                          ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 8                           ;
+; boundary_port         ; 158                         ;
+;                       ;                             ;
+; Max LUT depth         ; 86.10                       ;
+; Average LUT depth     ; 44.97                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:05     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Sun Jun 02 11:59:54 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CAD_VGA_Quartus -c CAD_VGA_Quartus
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file vga/vga_square.vhd
+    Info (12022): Found design unit 1: VGA_Square-Behavioral File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 24
+    Info (12023): Found entity 1: VGA_Square File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file vga/vga_controller.vhd
+    Info (12022): Found design unit 1: VGA_controller-Behavioral File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_controller.vhd Line: 40
+    Info (12023): Found entity 1: VGA_controller File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_controller.vhd Line: 26
+Info (12021): Found 2 design units, including 1 entities, in source file cad_vga_quartus.vhd
+    Info (12022): Found design unit 1: CAD961Test-CAD961Test File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 84
+    Info (12023): Found entity 1: CAD961Test File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 14
+Info (12127): Elaborating entity "CAD961Test" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(41): used implicit default value for signal "DRAM_ADDR" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(42): used implicit default value for signal "DRAM_BA" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 42
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(43): used implicit default value for signal "DRAM_CAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 43
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(44): used implicit default value for signal "DRAM_CKE" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 44
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(45): used implicit default value for signal "DRAM_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(46): used implicit default value for signal "DRAM_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 46
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(48): used implicit default value for signal "DRAM_LDQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 48
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(49): used implicit default value for signal "DRAM_RAS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 49
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(50): used implicit default value for signal "DRAM_UDQM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 50
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(51): used implicit default value for signal "DRAM_WE_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 51
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(54): used implicit default value for signal "SD_CLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 54
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(67): used implicit default value for signal "MyLCDLT24_ADC_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 67
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(68): used implicit default value for signal "MyLCDLT24_ADC_DCLK" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 68
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(69): used implicit default value for signal "MyLCDLT24_ADC_DIN" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 69
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(72): used implicit default value for signal "MyLCDLT24_CS_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 72
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(73): used implicit default value for signal "MyLCDLT24_D" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(74): used implicit default value for signal "MyLCDLT24_LCD_ON" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 74
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(75): used implicit default value for signal "MyLCDLT24_RD_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 75
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(76): used implicit default value for signal "MyLCDLT24_RESET_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 76
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(77): used implicit default value for signal "MyLCDLT24_RS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 77
+Warning (10541): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(78): used implicit default value for signal "MyLCDLT24_WR_N" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 78
+Warning (10540): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(151): used explicit default value for signal "SWidth" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 151
+Warning (10540): VHDL Signal Declaration warning at CAD_VGA_Quartus.vhd(152): used explicit default value for signal "bHight" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 152
+Info (12128): Elaborating entity "VGA_controller" for hierarchy "VGA_controller:VGA_Control" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 158
+Info (12128): Elaborating entity "VGA_Square" for hierarchy "VGA_Square:VGA_SQ" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 173
+Warning (10540): VHDL Signal Declaration warning at VGA_Square.vhd(44): used explicit default value for signal "SquareXposition" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 44
+Warning (10540): VHDL Signal Declaration warning at VGA_Square.vhd(46): used explicit default value for signal "blockYposition" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 46
+Warning (10540): VHDL Signal Declaration warning at VGA_Square.vhd(46): used explicit default value for signal "blockY2position" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 46
+Warning (10036): Verilog HDL or VHDL warning at VGA_Square.vhd(55): object "ColorSelect" assigned a value but never read File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 55
+Warning (10540): VHDL Signal Declaration warning at VGA_Square.vhd(59): used explicit default value for signal "SquareXMoveDir" because signal was never assigned a value File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 59
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 210
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 211
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 210
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter: File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 210
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_uio.tdf
+    Info (12023): Found entity 1: lpm_divide_uio File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_divide_uio.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/abs_divider_4dg.tdf Line: 26
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_o2f.tdf
+    Info (12023): Found entity 1: alt_u_div_o2f File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/alt_u_div_o2f.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_4p9.tdf
+    Info (12023): Found entity 1: lpm_abs_4p9 File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_abs_4p9.tdf Line: 22
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 211
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter: File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 211
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_bpo.tdf
+    Info (12023): Found entity 1: lpm_divide_bpo File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_divide_bpo.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/abs_divider_kbg.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_ove.tdf
+    Info (12023): Found entity 1: alt_u_div_ove File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/alt_u_div_ove.tdf Line: 22
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_kn9.tdf
+    Info (12023): Found entity 1: lpm_abs_kn9 File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/db/lpm_abs_kn9.tdf Line: 22
+Warning (13039): The following bidirectional pins have no drivers
+    Warning (13040): bidirectional pin "CLOCK4_50" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 20
+    Warning (13040): bidirectional pin "DRAM_DQ[0]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[1]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[2]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[3]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[4]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[5]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[6]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[7]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[8]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[9]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[10]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[11]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[12]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[13]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[14]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "DRAM_DQ[15]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 47
+    Warning (13040): bidirectional pin "SD_CMD" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 55
+    Warning (13040): bidirectional pin "SD_DATA[0]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 56
+    Warning (13040): bidirectional pin "SD_DATA[1]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 56
+    Warning (13040): bidirectional pin "SD_DATA[2]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 56
+    Warning (13040): bidirectional pin "SD_DATA[3]" has no driver File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 56
+Warning (13004): Presettable and clearable registers converted to equivalent circuits with latches. Registers power-up to an undefined state, and DEVCLRn places the registers in an undefined state.
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[7]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[7]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[7]~1" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[6]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[6]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[6]~5" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[5]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[5]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[5]~9" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[4]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[4]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[4]~13" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[3]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[3]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[3]~17" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[2]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[2]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[2]~21" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[1]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[1]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[1]~25" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[0]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[0]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[0]~29" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[31]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[31]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[31]~33" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[21]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[21]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[21]~37" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[30]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[30]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[30]~41" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[20]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[20]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[20]~45" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[29]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[29]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[29]~49" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[19]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[19]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[19]~53" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[28]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[28]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[28]~57" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[18]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[18]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[18]~61" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[27]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[27]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[27]~65" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[17]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[17]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[17]~69" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[26]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[26]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[26]~73" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[16]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[16]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[16]~77" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[25]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[25]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[25]~81" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[15]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[15]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[15]~85" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[24]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[24]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[24]~89" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[14]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[14]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[14]~93" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[23]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[23]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[23]~97" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[13]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[13]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[13]~101" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[22]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[22]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[22]~105" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[12]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[12]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[12]~109" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[11]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[11]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[11]~113" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[10]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[10]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[10]~117" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[9]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[9]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[9]~121" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Warning (13310): Register "VGA_Square:VGA_SQ|pseudo_rand1[8]" is converted into an equivalent circuit using register "VGA_Square:VGA_SQ|pseudo_rand1[8]~_emulated" and latch "VGA_Square:VGA_SQ|pseudo_rand1[8]~125" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 191
+    Warning (13410): Pin "HEX5[6]" is stuck at VCC File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 191
+    Warning (13410): Pin "DRAM_ADDR[0]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[1]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[2]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[3]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[4]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[5]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[6]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[7]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[8]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[9]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[10]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[11]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_ADDR[12]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 41
+    Warning (13410): Pin "DRAM_BA[0]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 42
+    Warning (13410): Pin "DRAM_BA[1]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 42
+    Warning (13410): Pin "DRAM_CAS_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 43
+    Warning (13410): Pin "DRAM_CKE" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 44
+    Warning (13410): Pin "DRAM_CLK" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 45
+    Warning (13410): Pin "DRAM_CS_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 46
+    Warning (13410): Pin "DRAM_LDQM" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 48
+    Warning (13410): Pin "DRAM_RAS_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 49
+    Warning (13410): Pin "DRAM_UDQM" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 50
+    Warning (13410): Pin "DRAM_WE_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 51
+    Warning (13410): Pin "SD_CLK" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 54
+    Warning (13410): Pin "VGA_B[1]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 59
+    Warning (13410): Pin "MyLCDLT24_ADC_CS_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 67
+    Warning (13410): Pin "MyLCDLT24_ADC_DCLK" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 68
+    Warning (13410): Pin "MyLCDLT24_ADC_DIN" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 69
+    Warning (13410): Pin "MyLCDLT24_CS_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 72
+    Warning (13410): Pin "MyLCDLT24_D[0]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[1]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[2]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[3]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[4]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[5]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[6]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[7]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[8]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[9]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[10]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[11]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[12]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[13]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[14]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_D[15]" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 73
+    Warning (13410): Pin "MyLCDLT24_LCD_ON" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 74
+    Warning (13410): Pin "MyLCDLT24_RD_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 75
+    Warning (13410): Pin "MyLCDLT24_RESET_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 76
+    Warning (13410): Pin "MyLCDLT24_RS" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 77
+    Warning (13410): Pin "MyLCDLT24_WR_N" is stuck at GND File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 78
+Info (286030): Timing-Driven Synthesis is running
+Critical Warning (18061): Ignored Power-Up Level option on the following registers
+    Critical Warning (18010): Register VGA_Square:VGA_SQ|CounterWon[0] will power up to Low File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 126
+    Critical Warning (18010): Register countEn[31] will power up to Low File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 191
+    Critical Warning (18010): Register countEn[0] will power up to Low File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 191
+    Critical Warning (18010): Register dahgan[0] will power up to Low File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 191
+    Critical Warning (18010): Register VGA_Square:VGA_SQ|Counter[0] will power up to Low File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/VGA/VGA_Square.vhd Line: 179
+Info (17049): 2 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 16 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "CLOCK2_50" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 18
+    Warning (15610): No output dependent on input pin "Key[1]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 24
+    Warning (15610): No output dependent on input pin "Key[2]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 24
+    Warning (15610): No output dependent on input pin "Switch[0]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[1]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[2]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[3]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[4]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[5]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[6]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[7]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[8]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "Switch[9]" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 38
+    Warning (15610): No output dependent on input pin "MyLCDLT24_ADC_BUSY" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 66
+    Warning (15610): No output dependent on input pin "MyLCDLT24_ADC_DOUT" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 70
+    Warning (15610): No output dependent on input pin "MyLCDLT24_ADC_PENIRQ_N" File: C:/Users/Cloner/Desktop/detail/CAD_VGA_Quartus/CAD_VGA_Quartus.vhd Line: 71
+Info (21057): Implemented 2903 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 21 input pins
+    Info (21059): Implemented 115 output pins
+    Info (21060): Implemented 22 bidirectional pins
+    Info (21061): Implemented 2745 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 161 warnings
+    Info: Peak virtual memory: 4932 megabytes
+    Info: Processing ended: Sun Jun 02 12:00:12 2019
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:32
+
+
