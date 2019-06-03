@@ -1,0 +1,13 @@
+
+State Machine - |CAD961Test|STATE
+Name STATE.loose STATE.start STATE.waitS 
+STATE.waitS 0 0 0 
+STATE.start 0 1 1 
+STATE.loose 1 0 1 
+
+State Machine - |CAD961Test|VGA_Square:VGA_SQ|STATE
+Name STATE.Won STATE.loose STATE.start STATE.waitS 
+STATE.waitS 0 0 0 0 
+STATE.start 0 0 1 1 
+STATE.loose 0 1 0 1 
+STATE.Won 1 0 0 1 
